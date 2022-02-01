@@ -14,7 +14,7 @@ export class AppComponent {
 
   private renderCounter: number = 0;
 
-  public arr: Array<number> = [];
+  public arr: Array<number> = [1234];
 
   public refresh(i: number): void {
     this.arr[i] = this.getRandomFactorial();
