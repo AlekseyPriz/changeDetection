@@ -1,44 +1,29 @@
-import { Component } from '@angular/core';
-import * as math from 'mathjs';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {RenderCounterService} from "./render-counter.service";
+import {ArrayService} from "./array.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
 
-  constructor() {
-    this.addNumber(10);
+  constructor(private renderCounter: RenderCounterService,
+              private arrayService: ArrayService) {
+    this.addNumber(10_000);
+    this.arr = this.arrayService.arr;
   }
 
-  private renderCounter: number = 0;
-
-  public arr: Array<number> = [1234];
-
-  public refresh(i: number): void {
-    this.arr[i] = this.getRandomFactorial();
-  }
+  public arr: Array<number>;
 
   public action() {
-    this.renderCounter += 1;
-    let random = Math.floor(Math.random() * 100);
-    console.log(`${this.renderCounter}) factorial(${random}) => ${this.factorial(random)}`);
+    this.renderCounter.incrementValue('parent');
   }
 
   public addNumber(num: number): void {
-    for (let i = 0; i < num; i++) {
-      this.arr.push(this.getRandomFactorial());
-    }
-  }
-
-  private getRandomFactorial(): number {
-    let random = Math.floor(Math.random() * 100);
-    return this.factorial(random);
-  }
-
-  public factorial(n: number): number {
-    return math.factorial(n);
+    this.arrayService.addNumber(num);
   }
 
 }

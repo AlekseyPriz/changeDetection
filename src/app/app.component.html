@@ -1,16 +1,13 @@
 <button (click)="addNumber(1)">+ 1</button>
 <button (click)="addNumber(100)">+ 100</button>
 <button (click)="addNumber(1000)">+ 1000</button>
+<button (click)="addNumber(10000)">+ 10000</button>
 Всего элементов: {{arr.length}}
 <br>
 <br>
 <br>
 
 <div class="container">
-  <div class="item"
-       (click)="refresh(i)"
-       *ngFor="let item of arr, index as i">
-    {{item}}
+    <factorial *ngFor="let item of arr" [value]="item"></factorial>
     {{action()}}
-  </div>
 </div>
