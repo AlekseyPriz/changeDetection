@@ -16,7 +16,8 @@ export class ArrayService {
 
   public addNumber(num: number): void {
     for (let i = 0; i < num; i++) {
-      this._arr.push(this.factorialService.getRandomFactorial());
+      // this._arr.push(this.factorialService.getRandomFactorial());
+      this._arr.push(this.factorialService.getRandom());
     }
   }
 

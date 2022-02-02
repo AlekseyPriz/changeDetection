@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import * as math from 'mathjs';
 import {RenderCounterService} from "../render-counter.service";
+import {FactorialService} from "../factorial.service";
 
 @Component({
   selector: 'factorial',
@@ -12,7 +13,8 @@ export class FactorialComponent {
 
   @Input() value!: number;
 
-  constructor(private renderCounter: RenderCounterService) {
+  constructor(private renderCounter: RenderCounterService,
+              private factorialService: FactorialService) {
   }
 
   public action() {
@@ -22,7 +24,8 @@ export class FactorialComponent {
   }
 
   public refresh(): void {
-    this.value = this.getRandomFactorial();
+    // this.value = this.getRandomFactorial();
+    this.value = this.factorialService.getRandom();
   }
 
 

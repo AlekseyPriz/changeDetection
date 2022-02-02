@@ -22,7 +22,7 @@ export class RenderCounterService {
 
   private logMessage(sours: string): void {
     let random: number = this.factorialService.getRandom();
-    console.log(`${this.value}) ${sours} = factorial(${random}) => ${this.factorialService.factorial(random)}`);
+    // console.log(`${this.value}) ${sours} = factorial(${random}) => ${this.factorialService.factorial(random)}`);
   }
 
 
