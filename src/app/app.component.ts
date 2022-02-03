@@ -9,7 +9,7 @@ import * as math from 'mathjs';
 export class AppComponent {
 
   constructor() {
-    this.addNumber(10);
+    this.addNumber(10_000);
   }
 
   private renderCounter: number = 0;
@@ -20,7 +20,7 @@ export class AppComponent {
     this.arr[i] = this.getRandomFactorial();
   }
 
-  public action() {
+  public action(): void {
     this.renderCounter += 1;
     let random = Math.floor(Math.random() * 100);
     console.log(`${this.renderCounter}) factorial(${random}) => ${this.factorial(random)}`);
