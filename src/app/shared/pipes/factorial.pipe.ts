@@ -13,7 +13,7 @@ export class FactorialPipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): unknown {
     if (typeof value === 'number') {
       let factorial: number = this.factorialService.factorial(value as number);
-      console.log(`${value}) = factorial(${value}) => ${factorial}`);
+      console.log(`${value}) factorial(${value}) => ${factorial}`);
       return factorial;
     } else {
       return null;
