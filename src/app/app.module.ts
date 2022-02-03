@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { FactorialComponent } from './factorial/factorial.component';
-import { FactorialPipe } from './shared/factorial.pipe';
+import { FactorialPipe } from './shared/pipes/factorial.pipe';
 
 @NgModule({
   declarations: [

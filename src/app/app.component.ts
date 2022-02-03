@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {RenderCounterService} from "./render-counter.service";
-import {ArrayService} from "./array.service";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {RenderCounterService} from "./shared/services/render-counter.service";
+import {ArrayService} from "./shared/services/array.service";
 
 @Component({
   selector: 'app-root',
@@ -11,23 +11,23 @@ import {ArrayService} from "./array.service";
 export class AppComponent {
 
   constructor(private renderCounter: RenderCounterService,
-              private arrayService: ArrayService,
-              private ref: ChangeDetectorRef) {
-
+              private arrayService: ArrayService,) {
     this.addNumber(10_000);
-
-    this.arr = this.arrayService.arr;
-
+    this.setArr();
   }
 
-  public arr: Array<number>;
+  public arr!: Array<number>;
 
-  public action() {
+  public action(): void {
     this.renderCounter.incrementValue('parent');
   }
 
   public addNumber(num: number): void {
     this.arrayService.addNumber(num);
+  }
+
+  private setArr(): void {
+    this.arr = this.arrayService.arr;
   }
 
 }

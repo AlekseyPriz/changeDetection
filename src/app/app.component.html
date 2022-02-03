@@ -3,10 +3,6 @@
 <button (click)="addNumber(1000)">+ 1000</button>
 <button (click)="addNumber(10000)">+ 10000</button>
 Всего элементов: {{arr.length}}
-<br>
-<br>
-<br>
-
 <div class="container">
     <factorial *ngFor="let item of arr" [value]="item"></factorial>
     {{action()}}
