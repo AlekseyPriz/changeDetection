@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import memo from 'memo-decorator';
 import {FactorialService} from "../services/factorial.service";
 
 @Pipe({
@@ -11,7 +10,6 @@ export class FactorialPipe implements PipeTransform {
   constructor(private factorialService: FactorialService) {
   }
 
-  @memo()
   transform(value: unknown, ...args: unknown[]): unknown {
     if (typeof value === 'number') {
       let factorial: number = this.factorialService.factorial(value as number);
